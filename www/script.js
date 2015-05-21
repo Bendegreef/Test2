@@ -20,10 +20,9 @@ function onDeviceReady() {
 	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-
 	alert('canvas ready');
 
-	document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
 	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
 
 }
@@ -35,7 +34,7 @@ function onTakePicture() {
 		quality: 75,
 		destinationType: CanvasCamera.DestinationType.DATA_URL,
 		encodingType: CanvasCamera.EncodingType.JPEG,
-		saveToPhotoAlbum: true,
+		saveToPhotoAlbum: false,
 		correctOrientation: true,
 		width: 200,
 		height: 200
@@ -45,14 +44,14 @@ function onTakePicture() {
 
 function onTakeSuccess(data) {
 	
-	var image = document.getElementById("myImage");
-	image.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
+	var objCanvas = document.getElementById("canvas");
+	objCanvas.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
 	// image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
 }
 
 
 
-function takePicture(e) {
+/*function takePicture(e) {
 	navigator.camera.getPicture(onSuccess, onFail, {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
@@ -72,4 +71,4 @@ function onFail(message) {
 		//alert('Failed because: ' + message);
 	}, 0);
 
-}
+}*/

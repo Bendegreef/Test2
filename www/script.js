@@ -20,16 +20,16 @@ function onDeviceReady() {
 	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	/*var opt = {
+	var opt = {
 		quality: 75,
 		destinationType: CanvasCamera.DestinationType.DATA_URL,
 		encodingType: CanvasCamera.EncodingType.JPEG,
-		saveToPhotoAlbum: true,
+		saveToPhotoAlbum: false,
 		correctOrientation: true,
-		width: 640,
-		height: 480
+		width: 200,
+		height: 200
 	};
-	CanvasCamera.start(opt);*/
+	CanvasCamera.start(opt);
 	alert('canvas ready');
 
 	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
@@ -39,9 +39,11 @@ function onDeviceReady() {
 
 function onTakePicture() {
 	CanvasCamera.takePicture(onTakeSuccess);
+	alert('onTakePicture');
 }
 
 function onTakeSuccess(data) {
+	
 	var objCanvas = document.getElementById("canvas");
 	objCanvas.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
 	// image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG

@@ -32,7 +32,7 @@ function onDeviceReady() {
 	CanvasCamera.start(opt);
 	alert('canvas ready');
 
-	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	document.getElementById("takePicture").addEventListener("click", takePicture, false);
 	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
 
 }
@@ -51,7 +51,7 @@ function onTakeSuccess(data) {
 
 
 
-/*function takePicture(e) {
+function takePicture(e) {
 	navigator.camera.getPicture(onSuccess, onFail, {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
@@ -71,4 +71,4 @@ function onFail(message) {
 		//alert('Failed because: ' + message);
 	}, 0);
 
-}*/
+}

@@ -56,14 +56,22 @@ function takePicture(e) {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
 		allowEdit: true,
-		targetWidth: 50,
-		targetHeight: 50
+		targetWidth: 100,
+		targetHeight: 100
 	});
 }
 
 function onSuccess(imageData) {
 	var image = document.getElementById('myImage');
 	image.src = "data:image/jpeg;base64," + imageData;
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var imageObj = new Image();
+	
+	imageObj.onload = function() {
+		context.drawImage(imageObj, 0, 0, width, height);
+	};
+	imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 
 function onFail(message) {

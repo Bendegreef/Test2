@@ -56,8 +56,6 @@ function takePicture(e) {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
 		allowEdit: true,
-		targetWidth: 100,
-		targetHeight: 100
 	});
 
 }

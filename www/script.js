@@ -20,7 +20,7 @@ function onDeviceReady() {
 	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	var opt = {
+	/*var opt = {
 		quality: 75,
 		destinationType: CanvasCamera.DestinationType.DATA_URL,
 		encodingType: CanvasCamera.EncodingType.JPEG,
@@ -29,7 +29,7 @@ function onDeviceReady() {
 		width: 640,
 		height: 480
 	};
-	CanvasCamera.start(opt);
+	CanvasCamera.start(opt);*/
 	alert('canvas ready');
 
 	//document.getElementById("takePicture").addEventListener("click", takePicture, false);

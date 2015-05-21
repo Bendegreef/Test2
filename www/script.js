@@ -20,7 +20,17 @@ function onDeviceReady() {
 	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	var opt = {
+
+
+	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
+
+}
+
+function onTakePicture() {
+	CanvasCamera.takePicture(onTakeSuccess);
+	alert('onTakePicture');
+		var opt = {
 		quality: 75,
 		destinationType: CanvasCamera.DestinationType.DATA_URL,
 		encodingType: CanvasCamera.EncodingType.JPEG,
@@ -31,15 +41,6 @@ function onDeviceReady() {
 	};
 	CanvasCamera.start(opt);
 	alert('canvas ready');
-
-	document.getElementById("takePicture").addEventListener("click", takePicture, false);
-	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
-
-}
-
-function onTakePicture() {
-	CanvasCamera.takePicture(onTakeSuccess);
-	alert('onTakePicture');
 }
 
 function onTakeSuccess(data) {
@@ -51,7 +52,7 @@ function onTakeSuccess(data) {
 
 
 
-function takePicture(e) {
+/*function takePicture(e) {
 	navigator.camera.getPicture(onSuccess, onFail, {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
@@ -71,4 +72,4 @@ function onFail(message) {
 		//alert('Failed because: ' + message);
 	}, 0);
 
-}
+}*/

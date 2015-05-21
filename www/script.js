@@ -18,16 +18,16 @@ function onDeviceReady() {
 	console.log(window.device);
 	console.log(window.plugins);
 	alert('device ready');
-	var objCanvas = document.getElementById("canvas");
+	/*var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	alert('canvas ready');
+	alert('canvas ready');*/
 
-	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
-	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
+	document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	//document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
 
 }
 
-function onTakePicture() {
+/*function onTakePicture() {
 	CanvasCamera.takePicture(onTakeSuccess);
 	alert('onTakePicture');
 		var opt = {
@@ -47,11 +47,11 @@ function onTakeSuccess(data) {
 	var image = document.getElementById("myImage");
 	image.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
 	// image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
-}
+}*/
 
 
 
-/*function takePicture(e) {
+function takePicture(e) {
 	navigator.camera.getPicture(onSuccess, onFail, {
 		quality: 50,
 		destinationType: navigator.camera.DestinationType.DATA_URL,
@@ -71,4 +71,4 @@ function onFail(message) {
 		//alert('Failed because: ' + message);
 	}, 0);
 
-}*/
+}

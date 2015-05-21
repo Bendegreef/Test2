@@ -46,7 +46,7 @@ function onTakePicture() {
 function onTakeSuccess(data) {
 
 		var objCanvas = document.getElementById("canvas");
-		var context = objCanvas.getContext('2d');
+		var context = objCanvas.getContext("2d");
 
 		objCanvas.width = window.innerWidth;
 		objCanvas.height = window.innerHeight;
@@ -56,11 +56,11 @@ function onTakeSuccess(data) {
 		var width = window.innerWidth;
 		var height = window.innerHeight;
 		var imageObj = new Image();
-
+		objCanvas.src = "data:image/jpeg;base64," + data;
 		imageObj.onload = function () {
 			context.drawImage(imageObj, x, y, width, height);
 		};
-			objCanvas.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
+			 // options.encodingType == CanvasCamera.EncodingType.JPEG
 			// image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
 		}
 

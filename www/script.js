@@ -10,6 +10,8 @@ var destinationType; // sets the format of returned value
 
 // Wait for Cordova to connect with the device
 //
+
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready to be used!
@@ -20,9 +22,7 @@ function onDeviceReady() {
 	alert('device ready');
 	/*var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	alert('canvas ready');*/
-
-	document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	alert('canvas ready');*/	document.getElementById("takePicture").addEventListener("click", takePicture, false);
 	//document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
 
 }
@@ -59,17 +59,18 @@ function takePicture(e) {
 		targetWidth: 100,
 		targetHeight: 100
 	});
+
 }
 
 function onSuccess(imageData) {
 	//var image = document.getElementById("myImage");
 	//image.src = "data:image/jpeg;base64," + imageData;
-	var canvas = document.getElementById("canvas");
+		var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
 	var imageObj = new Image();
-	
 	imageObj.src = "data:image/jpeg;base64," + imageData;
-	context.drawImage(imageObj, 0, 0, 100, 100, 100, 100);
+		context.drawImage(imageObj, 0, 0);
+	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 
 function onFail(message) {

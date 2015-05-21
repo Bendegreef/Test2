@@ -15,44 +15,57 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready to be used!
 //
 function onDeviceReady() {
-   console.log(window.device);
-   console.log(window.plugins);
-    alert('device ready');
+	console.log(window.device);
+	console.log(window.plugins);
+	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
-    window.plugin.CanvasCamera.initialize(objCanvas);
+	window.plugin.CanvasCamera.initialize(objCanvas);
+	var opt = {
+		quality: 75,
+		destinationType: CanvasCamera.DestinationType.DATA_URL,
+		encodingType: CanvasCamera.EncodingType.JPEG,
+		saveToPhotoAlbum: true,
+		correctOrientation: true,
+		width: 640,
+		height: 480
+	};
+	CanvasCamera.start(opt);
 	alert('canvas ready');
 
-    //document.getElementById("takePicture").addEventListener("click", takePicture, false);
-	document.getElementById("takePicturePreview").addEventListener("click", takePicturePreview, false);
-	
-}
-function takePicturePreview(e) {
-	alert('takepicture');
-		window.plugin.takePicture(success);
+	//document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
+
 }
 
-function success (data) {
-	objCanvas.src = "data:image/jpeg;base64," + data;
+function onTakePicture() {
+	CanvasCamera.takePicture(onTakeSuccess);
 }
 
-function takePicture(e) {
-    navigator.camera.getPicture(onSuccess, onFail, {
-        quality: 50,
-        destinationType: navigator.camera.DestinationType.DATA_URL,
+function onTakeSuccess(data) {
+		var image = document.getElementById('myImage');
+    image.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
+    // image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
+}
+
+/*function takePicture(e) {
+	navigator.camera.getPicture(onSuccess, onFail, {
+		quality: 50,
+		destinationType: navigator.camera.DestinationType.DATA_URL,
 		allowEdit: true,
 		targetWidth: 50,
 		targetHeight: 50
-    });
+	});
 }
 
 function onSuccess(imageData) {
-    var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + imageData;
+	var image = document.getElementById('myImage');
+	image.src = "data:image/jpeg;base64," + imageData;
 }
 
 function onFail(message) {
-    setTimeout(function () {
-        //alert('Failed because: ' + message);
-    }, 0);
+	setTimeout(function () {
+		//alert('Failed because: ' + message);
+	}, 0);
 
-}
+}*/
+

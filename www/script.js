@@ -7,7 +7,7 @@ global canvasCamera
 */
 var pictureSource; // picture source
 var destinationType; // sets the format of returned value 
-var objCanvas = document.getElementById("canvas");
+var objCanvas;
 // Wait for Cordova to connect with the device
 //
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -18,6 +18,7 @@ function onDeviceReady() {
    console.log(window.device);
    console.log(window.plugins);
     alert('device ready');
+	objCanvas = document.getElementById("canvas")
     window.plugin.CanvasCamera.initialize(objCanvas);
 	alert('canvas ready');
 

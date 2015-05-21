@@ -1,10 +1,13 @@
 /* jshint
 browser: true,
-devel: true
+devel: true,
+*/
+/*
+global canvasCamera
 */
 var pictureSource; // picture source
 var destinationType; // sets the format of returned value 
-
+var objCanvas = document.getElementById("canvas");
 // Wait for Cordova to connect with the device
 //
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -15,8 +18,20 @@ function onDeviceReady() {
    console.log(window.device);
    console.log(window.plugins);
     alert('device ready');
+    window.plugin.CanvasCamera.initialize(objCanvas);
+	alert('canvas ready');
 
-    document.getElementById("takePicture").addEventListener("click", takePicture, false);
+    //document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	document.getElementById("takePicturePreview").addEventListener("click", takePicturePreview, false);
+	
+}
+function takePicturePreview(e) {
+	alert('takepicture');
+		window.plugin.takePicture(success);
+}
+
+function success (data) {
+	objCanvas.src = "data:image/jpeg;base64," + data;
 }
 
 function takePicture(e) {

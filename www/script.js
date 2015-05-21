@@ -3,7 +3,7 @@ browser: true,
 devel: true,
 */
 /*
-global canvasCamera
+global CanvasCamera
 */
 var pictureSource; // picture source
 var destinationType; // sets the format of returned value 
@@ -42,10 +42,12 @@ function onTakePicture() {
 }
 
 function onTakeSuccess(data) {
-		var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
-    // image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
+	var objCanvas = document.getElementById("canvas");
+	objCanvas.src = "data:image/jpeg;base64," + data; // options.encodingType == CanvasCamera.EncodingType.JPEG
+	// image.src = "data:image/png;base64," + data; // options.encodingType == CanvasCamera.EncodingType.PNG
 }
+
+
 
 /*function takePicture(e) {
 	navigator.camera.getPicture(onSuccess, onFail, {
@@ -68,4 +70,3 @@ function onFail(message) {
 	}, 0);
 
 }*/
-

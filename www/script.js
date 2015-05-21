@@ -20,16 +20,7 @@ function onDeviceReady() {
 	alert('device ready');
 	var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	var opt = {
-		quality: 75,
-		destinationType: CanvasCamera.DestinationType.DATA_URL,
-		encodingType: CanvasCamera.EncodingType.JPEG,
-		saveToPhotoAlbum: true,
-		correctOrientation: true,
-		width: 200,
-		height: 200
-	};
-	CanvasCamera.start(opt);
+
 	alert('canvas ready');
 
 	document.getElementById("takePicture").addEventListener("click", takePicture, false);
@@ -40,6 +31,16 @@ function onDeviceReady() {
 function onTakePicture() {
 	CanvasCamera.takePicture(onTakeSuccess);
 	alert('onTakePicture');
+		var opt = {
+		quality: 75,
+		destinationType: CanvasCamera.DestinationType.DATA_URL,
+		encodingType: CanvasCamera.EncodingType.JPEG,
+		saveToPhotoAlbum: true,
+		correctOrientation: true,
+		width: 200,
+		height: 200
+	};
+	CanvasCamera.start(opt);
 }
 
 function onTakeSuccess(data) {

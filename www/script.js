@@ -69,7 +69,7 @@ function onSuccess(imageData) {
 	var imageObj = new Image();
 	
 	imageObj.src = "data:image/jpeg;base64," + imageData;
-	context.drawImage(imageObj, 0, 0);
+	context.drawImage(imageObj, 0, 0, 100, 100, 100, 100);
 }
 
 function onFail(message) {

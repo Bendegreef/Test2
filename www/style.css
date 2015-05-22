@@ -1,3 +1,9 @@
 #myImage {
 	display: none;
 }
+#myCanvas {
+	display: none;
+}
+#defImg {
+	width: 300px;
+}

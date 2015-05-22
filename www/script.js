@@ -70,7 +70,7 @@ function onSuccess(imageData) {
 	imageObj.src = "data:image/jpeg;base64," + imageData;
 	context.drawImage(imageObj, 0, 0, 3000, 3000, 0, 0, 3000, 3000);
 	var dataURL = canvas.toDataURL();
-	document.getElementById("defImg").setAttribute('crossorigin', 'anonymous');
+	document.getElementById("defImg").setAttribute('crossOrigin', 'anonymous');
 	document.getElementById("defImg").src = dataURL;
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }

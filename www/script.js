@@ -22,7 +22,8 @@ function onDeviceReady() {
 	alert('device ready');
 	/*var objCanvas = document.getElementById("canvas");
 	window.plugin.CanvasCamera.initialize(objCanvas);
-	alert('canvas ready');*/	document.getElementById("takePicture").addEventListener("click", takePicture, false);
+	alert('canvas ready');*/
+	document.getElementById("takePicture").addEventListener("click", takePicture, false);
 	//document.getElementById("takePicturePreview").addEventListener("click", onTakePicture, false);
 
 }
@@ -63,15 +64,14 @@ function takePicture(e) {
 function onSuccess(imageData) {
 	//var image = document.getElementById("myImage");
 	//image.src = "data:image/jpeg;base64," + imageData;
-		var canvas = document.getElementById("canvas");
+	var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
 	var imageObj = document.getElementById("myImage");
 	imageObj.src = "data:image/jpeg;base64," + imageData;
-	
-	imageObj.onload = function() {
-		var width = document.getElementById("myImage").width;
-		context.drawImage(imageObj, 0, 0, width, width, 0, 0, 360, 360);
-	};
+
+
+	var width = document.getElementById("myImage").width;
+	context.drawImage(imageObj, 0, 0, width, width, 0, 0, 360, 360);
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 

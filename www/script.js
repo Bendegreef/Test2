@@ -65,9 +65,11 @@ function onSuccess(imageData) {
 	//image.src = "data:image/jpeg;base64," + imageData;
 		var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
-	var imageObj = new Image();
+	var imageObj = document.getElementById("myImage");
 	imageObj.src = "data:image/jpeg;base64," + imageData;
+	imageObj.onload = function() {
 		context.drawImage(imageObj, 0, 0, 360, 360);
+	}
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 

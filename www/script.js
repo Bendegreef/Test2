@@ -70,7 +70,7 @@ function onSuccess(imageData) {
 	
 	imageObj.onload = function() {
 		var width = document.getElementById("myImage").width;
-		context.drawImage(imageObj, 0, 0, width, 3000, 0, 0, 360, 360);
+		context.drawImage(imageObj, 0, 0, width, width, 0, 0, 360, 360);
 	};
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }

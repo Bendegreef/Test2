@@ -68,7 +68,7 @@ function onSuccess(imageData) {
 	var imageObj = document.getElementById("myImage");
 	imageObj.src = "data:image/jpeg;base64," + imageData;
 	imageObj.onload = function() {
-		context.drawImage(imageObj, 0, 0, 360, 360);
+		context.drawImage(imageObj, 0, 0);
 	}
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }

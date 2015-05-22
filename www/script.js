@@ -68,8 +68,10 @@ function onSuccess(imageData) {
 	var context = canvas.getContext("2d");
 	var imageObj = document.getElementById("myImage");
 	imageObj.src = "data:image/jpeg;base64," + imageData;
-var width = document.getElementById("myImage").width;
-	context.drawImage(imageObj, 0, 0, width, width, 0, 0, 360, 360);
+	context.drawImage(imageObj, 0, 0, 3000, 3000, 0, 0, 3000, 3000);
+	var dataURL = canvas.toDataURL();
+	document.getElementById("defImg").setAttribute('crossorigin', 'anonymous');
+	document.getElementById("defImg").src = dataURL;
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 

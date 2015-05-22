@@ -67,7 +67,7 @@ function onSuccess(imageData) {
 	var context = canvas.getContext("2d");
 	var imageObj = new Image();
 	imageObj.src = "data:image/jpeg;base64," + imageData;
-		context.drawImage(imageObj, 0, 0);
+		context.drawImage(imageObj, 0, 0, 360, 360);
 	//imageObj.src = "data:image/jpeg;base64," + imageData;
 }
 
